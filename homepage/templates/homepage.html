@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="homepage.css" />
+  <title>Normal mode</title>
+</head>
+
+<body>
+<style>
+  body {
+            background-image: url("{% static 'img/background.avif' %}");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        button {
+            padding: 25px 50px;
+            font-size: 25px;
+            color: black;
+        }
+        fieldset{
+          background-color: black;
+        }
+</style>
+  <div class="dog"></div>
+  
+  <fieldset class="box">
+    <button id="button" name="rock" value="rock" onclick="game(this)"><img src="{% static 'img/rock.png' %}" width="100" height="100" alt="rock"></button>
+    <button id="button" name="paper" value="paper" onclick="game(this)"><img src="{% static 'img/paper.png' %}" width="100" height="100" alt="paper"></button>
+    <button id="button" name="scissor" value="scissor" onclick="game(this)"><img src="{% static 'img/scissors.png' %}" width="100" height="100" alt="scissors" ></button>
+  </fieldset>
+  <button onclick="location.href = '/gamepage'" style="position: relative; top: 0%; left: 100px;">return</button>
+  
+  <script>
+    win_streak = 0;
+    function game(item) {
+      choice = ["rock", "paper", "scissor"];
+      random = Math.floor(Math.random() * 3);
+      bot_answer=choice[random];
+      if(bot_answer == item.value){
+        answer="draw"
+        win_streak = 0
+      }
+      else if(bot_answer == "rock" && item.value == "scissor"){
+        answer="lose"
+        win_streak = 0
+      }
+      else if(bot_answer == "paper" && item.value == "rock"){
+        answer="lose"
+        win_streak = 0
+      }else if(bot_answer == "scissor" && item.value == "paper"){
+        answer="lose"
+        win_streak = 0
+      }
+      else{
+        answer="win"
+        win_streak = win_streak + 1;
+      }
+      alert(answer + ", Bot chose: " + bot_answer + " ,winstreak is: " + win_streak)
+      }
+</script>
+</body>
+
+</html>

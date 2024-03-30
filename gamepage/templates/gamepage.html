@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby</title>
+    <style>
+        body {
+            background-image: url("{% static 'img/background.avif' %}");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        button {
+            padding: 25px 50px;
+            font-size: 25px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <button style="position: relative; top: 0%; right: 100px;" onclick="location.href = '/homepage'">NORMAL MODE</button>
+    <button style="position: relative; top: 0%; left: 100px;" onclick="location.href = '/roundmode'">ROUND MODE</button>
+</body>
+</html>
